@@ -2,311 +2,339 @@
 
 **Duración:** 2 horas
 **Requisito:** Tener Claude Code instalado y funcionando (Clase 1).
-**Objetivo:** Usar Claude Code en escenarios reales para resolver problemas concretos.
+**Objetivo:** Usar Claude Code para resolver tareas reales de tu trabajo: analizar datos, redactar contenido, consultar bases de datos, y automatizar tareas repetitivas.
 
 ---
 
-## Parte 1 — Repaso rápido y setup (15 min)
+## Parte 1 — Repaso y setup (15 min)
 
 ### Verificar que todo funciona
 
 ```bash
-# Abrir la terminal
 cd ~/Desktop/taller-claude
 claude
 ```
 
 Si alguien tiene problemas, resolverlos ahora.
 
-### Repaso express
+### Repaso express de la Clase 1
 
-- Claude Code vive en la terminal
-- Lee y modifica tus archivos directamente
+- Claude Code vive en la terminal y tiene acceso a tus archivos
 - Siempre pide permiso antes de actuar
+- **Estático** (archivos locales): instrucciones, reglas, templates
+- **Dinámico** (base de datos en la nube): clientes, ventas, métricas
 - Se invoca con `claude` dentro de una carpeta
 
 ---
 
-## Parte 2 — Caso 1: Crear un proyecto desde cero (25 min)
+## Parte 2 — Caso 1: Analizar datos de un archivo (25 min)
 
 ### El escenario
 
-Queremos crear una página web personal simple — un portafolio con tu nombre, una descripción, y links a tus redes sociales.
+Tienes un archivo CSV con las ventas del trimestre y necesitas sacar conclusiones rápidas para una reunión.
 
 ### Paso a paso
 
-**1. Crear la estructura del proyecto:**
+**1. Crear datos de ejemplo:**
 
 ```
-> Crea una página web personal con HTML y CSS. Quiero:
-> - Mi nombre grande en el centro
-> - Una descripción corta debajo
-> - Links a GitHub, LinkedIn y Twitter como íconos
-> - Diseño moderno y minimalista
-> - Que sea responsive (se vea bien en celular)
+> Crea un archivo ventas-q1-2025.csv con 30 filas de datos ficticios de ventas.
+> Columnas: fecha, vendedor, cliente, producto, cantidad, monto_clp.
+> Que haya 4 vendedores distintos, 8 clientes distintos, y 5 productos.
+> Los montos deben ser realistas (entre 50.000 y 5.000.000 CLP).
 ```
 
-**2. Observar cómo trabaja Claude:**
-- Crea múltiples archivos (HTML, CSS)
-- Estructura el código de forma organizada
-- Aplica buenas prácticas automáticamente
-
-**3. Ver el resultado:**
+**2. Pedir análisis:**
 
 ```
-> Abre el archivo index.html en el navegador
+> Analiza ventas-q1-2025.csv y dame un resumen ejecutivo para presentar en la reunión de equipo.
+> Incluye: total vendido, mejor vendedor, mejor producto, tendencia mensual.
 ```
 
-O simplemente abre el archivo manualmente desde el explorador de archivos.
-
-**4. Pedir cambios iterativos:**
+**3. Profundizar:**
 
 ```
-> Cambia los colores a un esquema oscuro (dark mode)
+> ¿Qué vendedor tiene el ticket promedio más alto?
 ```
 
 ```
-> Agrega una sección de "Proyectos" con 3 cards
+> ¿Hay algún cliente que haya comprado solo una vez? Podrían ser oportunidades de seguimiento.
 ```
 
+**4. Generar un reporte:**
+
 ```
-> Agrega una animación suave cuando haces scroll
+> Crea un archivo reporte-q1.md con un reporte ejecutivo completo.
+> Incluye tablas, rankings y recomendaciones de acción para el equipo.
 ```
 
 ### Lo que aprendemos aquí
-- Claude Code puede crear proyectos completos desde una descripción
-- Puedes iterar pidiendo cambios progresivos
-- No necesitas saber HTML/CSS para tener un resultado funcional
+- Claude Code lee archivos CSV directamente — sin copiar ni pegar
+- Puede hacer análisis complejos y presentarlos como quieras
+- Puede generar reportes listos para compartir
 
 ---
 
-## Parte 3 — Caso 2: Entender y explicar código (20 min)
+## Parte 3 — Caso 2: Redacción y comunicación (20 min)
 
 ### El escenario
 
-Te pasaron un archivo de código que no entiendes y necesitas saber qué hace.
+Necesitas redactar distintos tipos de comunicación para tu trabajo diario.
 
-### Paso a paso
+### Ejercicios
 
-**1. Pedir una explicación general:**
-
-```
-> Explícame qué hace el archivo index.html como si tuviera 10 años
-```
-
-**2. Preguntar sobre partes específicas:**
+**1. Email de seguimiento:**
 
 ```
-> ¿Qué hace la sección de CSS que dice @media?
+> Redacta un email de seguimiento para un cliente llamado Rodrigo Fuentes de la empresa TechCorp.
+> Le enviamos una propuesta hace 5 días y no ha respondido.
+> Tono: profesional pero cercano. No agresivo.
 ```
 
-```
-> ¿Por qué se usa display: flex?
-```
-
-**3. Pedir documentación:**
+**2. Iterar sobre el tono:**
 
 ```
-> Agrega comentarios en español explicando cada sección del HTML y del CSS
+> Hazlo más corto, máximo 4 líneas. Va para WhatsApp, no email.
 ```
 
-### Lo que aprendemos aquí
-- Claude Code es excelente para aprender — puedes preguntar "por qué" sin límite
-- Puede explicar a distintos niveles de profundidad
-- Puede documentar código existente
-
----
-
-## Parte 4 — Caso 3: Debuggear un problema (20 min)
-
-### El escenario
-
-Algo en nuestra página no funciona bien — vamos a romperla intencionalmente y pedirle a Claude que la arregle.
-
-### Paso a paso
-
-**1. Romper algo a propósito:**
-
-Abre `index.html` con cualquier editor de texto y:
-- Borra un `</div>` de cierre en algún lugar
-- Cambia un nombre de clase CSS (ej: `container` → `contaienr`)
-- Borra un `;` en el CSS
-
-Guarda el archivo.
-
-**2. Pedirle a Claude que lo arregle:**
+**3. Propuesta comercial:**
 
 ```
-> La página se ve rota. ¿Puedes revisar qué está mal y arreglarlo?
+> Crea una propuesta comercial en formato markdown para el cliente TechCorp.
+> Ofrecemos: plan de software por 500.000 CLP/mes, incluye soporte 24/7 y 5 licencias.
+> La propuesta debe tener: resumen ejecutivo, detalle del servicio, precios, y próximos pasos.
 ```
 
-**3. Observar el proceso de debugging:**
-- Claude lee los archivos
-- Identifica los errores
-- Explica qué encontró
-- Aplica las correcciones
-
-**4. Probar con errores más sutiles:**
+**4. Comunicación interna:**
 
 ```
-> El botón no hace nada cuando le hago clic. ¿Puedes arreglarlo?
+> Redacta un mensaje para Slack avisando al equipo que cerramos la venta con TechCorp.
+> Incluye el monto y agradece al equipo de operaciones por el apoyo.
 ```
 
 ### Lo que aprendemos aquí
-- Claude Code puede diagnosticar problemas sin que le digas exactamente qué está mal
-- Lee el contexto completo del proyecto para entender el problema
-- Explica el error antes de arreglarlo
+- Claude Code puede adaptar tono y formato según el canal (email, WhatsApp, Slack)
+- Puedes iterar rápidamente pidiendo cambios
+- Los archivos generados quedan guardados en tu carpeta para reusar
 
 ---
 
-## Parte 5 — Caso 4: Usar Skills (20 min)
+## Parte 4 — Caso 3: Base de datos con Neon (30 min)
 
-### ¿Qué son las skills?
+### ¿Por qué una base de datos?
 
-Las skills son comandos especializados que empiezan con `/`. Son atajos para tareas comunes.
+En la Clase 1 aprendimos que los datos dinámicos (clientes, ventas, etc.) no deben vivir en archivos locales. Ahora vamos a usar **Neon** — una base de datos en la nube que Claude Code puede consultar directamente.
 
-### Skills esenciales
+### Configuración de Neon
 
-#### /help — Ver comandos disponibles
+**1. Crear cuenta en Neon:**
 
-```
-/help
-```
+1. Ve a [neon.tech](https://neon.tech) y crea una cuenta gratuita
+2. Crea un nuevo proyecto (ponle un nombre como "taller-ventas")
+3. Neon te dará una URL de conexión — la necesitaremos en un momento
 
-Muestra todas las opciones y skills disponibles.
+**2. Conectar Claude Code con Neon:**
 
-#### /commit — Hacer commits inteligentes
+Claude Code se conecta a Neon a través de MCP. La configuración se hace una vez y queda lista para siempre.
 
-Primero necesitamos inicializar git en nuestro proyecto:
+> **Nota para el instructor:** Mostrar en pantalla cómo configurar el MCP de Neon en Claude Code.
 
-```
-> Inicializa un repositorio git en esta carpeta y haz el primer commit
-```
+### Crear tablas y cargar datos
 
-Ahora hagamos un cambio cualquiera:
+Una vez conectado, puedes hablarle a tu base de datos en español:
 
-```
-> Agrega un footer a la página con el año actual
-```
-
-Y luego usamos la skill:
+**1. Crear la estructura:**
 
 ```
-/commit
+> Crea una tabla de clientes en Neon con: nombre, empresa, email, teléfono, ciudad, categoría (A/B/C), fecha de primer contacto.
 ```
 
-Claude Code va a:
-1. Ver qué archivos cambiaron
-2. Analizar los cambios
-3. Escribir un mensaje de commit descriptivo
-4. Crear el commit
-
-#### /review-pr — Revisar código
-
-Si tienes un pull request en GitHub:
-
 ```
-/review-pr 123
+> Crea una tabla de ventas con: fecha, cliente (que referencie a la tabla clientes), producto, cantidad, monto en CLP, estado (pendiente/pagada/vencida).
 ```
 
-Claude Code revisa el código y da feedback como lo haría un compañero de equipo.
+**2. Cargar datos:**
+
+```
+> Inserta 15 clientes ficticios pero realistas, de empresas chilenas, distribuidos entre Santiago, Valparaíso y Concepción. Mezcla categorías A, B y C.
+```
+
+```
+> Inserta 40 ventas de los últimos 3 meses para esos clientes. Que haya ventas en los 3 estados.
+```
+
+### Consultar datos como si fuera una conversación
+
+Aquí es donde ocurre la magia — **no necesitas saber SQL**:
+
+```
+> ¿Cuántos clientes categoría A tenemos en Santiago?
+```
+
+```
+> ¿Cuál es el monto total de ventas pendientes de pago?
+```
+
+```
+> Muéstrame los 5 clientes con más ventas acumuladas
+```
+
+```
+> ¿Qué clientes no han comprado nada en el último mes? Podrían estar en riesgo de churn.
+```
+
+### Actualizar datos
+
+```
+> Cambia la categoría del cliente "Empresa XYZ" de B a A — cerramos un deal grande con ellos.
+```
+
+```
+> Marca como pagadas todas las ventas de febrero que estén pendientes.
+```
+
+### Generar reportes desde la base de datos
+
+```
+> Genera un reporte de cobranza: lista todas las ventas vencidas, ordenadas por monto.
+> Incluye el nombre del cliente, su email y teléfono para que el equipo pueda contactarlos.
+```
 
 ### Lo que aprendemos aquí
-- Las skills simplifican tareas repetitivas
-- `/commit` escribe mejores mensajes de commit que la mayoría de los humanos
-- Son extensibles — se pueden crear skills personalizadas
+- Neon es tu base de datos en la nube — accesible desde cualquier lugar
+- Claude Code consulta y modifica datos directamente, sin que sepas SQL
+- La información dinámica (clientes, ventas) vive en Neon, no en archivos CSV
+- Puedes generar reportes combinando datos de la base con templates locales
 
 ---
 
-## Parte 6 — Caso 5: CLAUDE.md y personalización (15 min)
+## Parte 5 — Caso 4: CLAUDE.md — Personalizar tu agente (15 min)
 
-### Crear tu CLAUDE.md
+### Crear las reglas de tu equipo
 
 ```
-> Crea un archivo CLAUDE.md para este proyecto con las siguientes reglas:
+> Crea un archivo CLAUDE.md con las siguientes reglas para nuestro equipo de ventas:
+>
 > - Responde siempre en español
-> - Usa comentarios descriptivos en el código
-> - El estilo de código debe ser limpio y simple
-> - Cuando crees archivos HTML, usa la estructura semántica (header, main, footer)
+> - Los montos siempre en CLP, con separador de miles (punto)
+> - Formato de fecha: DD/MM/YYYY
+> - Cuando generes reportes, usa formato markdown con tablas
+> - Los datos de clientes son confidenciales — nunca los muestres en resúmenes públicos
+> - Nuestra base de datos en Neon tiene las tablas: clientes y ventas
+> - Para comunicaciones con clientes, usa tono profesional pero cercano
 ```
 
 ### Probar que funciona
 
-Cierra Claude Code (escribe `exit` o presiona Ctrl+C) y vuelve a abrirlo:
+Cierra Claude Code (`exit`) y vuelve a abrirlo:
 
 ```bash
 claude
 ```
 
-Ahora pide algo nuevo:
+Ahora pide algo sin especificar formato:
 
 ```
-> Crea una segunda página llamada contacto.html con un formulario de contacto
+> Dame el resumen de ventas del mes
 ```
 
-Verifica que Claude sigue las reglas del CLAUDE.md (español, semántica, comentarios).
+Claude debería automáticamente:
+- Responder en español
+- Usar formato de fecha DD/MM/YYYY
+- Mostrar montos en CLP con separador de miles
+- Consultar la base de datos Neon
 
-### Modificar las reglas
+### Agregar instrucciones específicas
 
 ```
-> Actualiza CLAUDE.md para agregar: "Siempre usar colores del esquema oscuro que ya definimos"
+> Agrega a CLAUDE.md: "Cuando el usuario pida un reporte de cobranza, siempre incluir teléfono y email del cliente para facilitar el seguimiento"
 ```
 
 ### Lo que aprendemos aquí
-- CLAUDE.md es la forma de darle contexto permanente a Claude sobre tu proyecto
-- Se lee automáticamente cada vez que abres Claude Code en esa carpeta
-- Puedes ir agregando reglas a medida que defines tu estilo de trabajo
+- CLAUDE.md es la forma de entrenar a tu agente sin repetirte
+- Define una vez, aplica siempre
+- Puedes ir refinando las reglas a medida que trabajas
 
 ---
 
-## Parte 7 — Caso 6: Conectar con el mundo exterior — MCP (15 min)
+## Parte 6 — Caso 5: Automatizar tareas repetitivas (15 min)
 
-### ¿Qué es MCP en la práctica?
+### El escenario
 
-MCP (Model Context Protocol) permite que Claude Code se conecte con servicios externos. Es como instalarle "plugins".
+Hay tareas que haces todos los días o todas las semanas que podrían hacerse más rápido.
 
-### Ejemplo conceptual: Base de datos con Neon
+### Ejemplos prácticos
 
-Con MCP configurado, podrías hacer cosas como:
-
-```
-> Muéstrame las tablas que tengo en mi base de datos
-```
+**1. Organizar archivos:**
 
 ```
-> Crea una tabla de usuarios con nombre, email y fecha de registro
+> Tengo varios archivos sueltos en esta carpeta. Organízalos en subcarpetas por tipo:
+> documentos/, datos/, reportes/
 ```
 
-```
-> Inserta 5 usuarios de prueba
-```
-
-Claude Code habla directamente con la base de datos — no necesitas escribir SQL ni usar otra herramienta.
-
-### Ejemplo conceptual: Chrome DevTools
+**2. Crear templates reutilizables:**
 
 ```
-> Abre mi página web en Chrome y toma un screenshot
+> Crea una carpeta templates/ con los siguientes archivos:
+> - email-seguimiento.md → Template de email de seguimiento con placeholders para nombre y empresa
+> - reporte-semanal.md → Estructura de reporte semanal con secciones fijas
+> - propuesta-comercial.md → Template de propuesta con campos para completar
 ```
 
-```
-> Haz una auditoría de rendimiento de mi página
-```
-
-### Ejemplo conceptual: Telegram
+**3. Procesar múltiples archivos:**
 
 ```
-> Envía un mensaje a mi chat de Telegram diciendo "Deploy completado"
+> Lee todos los archivos CSV de la carpeta datos/ y crea un resumen consolidado
+> con las métricas principales de cada uno
 ```
 
-### Cómo se configura (demo visual)
+**4. Generar contenido en lote:**
 
-Los MCP servers se configuran en el archivo de settings de Claude Code. No profundizaremos en la configuración hoy, pero es bueno saber que existe y lo que permite.
+```
+> Usando la tabla de clientes categoría A de Neon, genera un email personalizado
+> de seguimiento para cada uno. Guárdalos en la carpeta emails/
+```
 
 ### Lo que aprendemos aquí
-- MCP extiende Claude Code para conectar con servicios externos
-- No necesitas cambiar de herramienta — todo desde la terminal
-- Hay MCPs para bases de datos, navegadores, mensajería, deploys, y más
+- Claude Code puede trabajar con múltiples archivos a la vez
+- Los templates te ahorran tiempo en tareas repetitivas
+- Puedes combinar datos de Neon con templates locales para generar contenido personalizado
+
+---
+
+## Parte 7 — Arquitectura recomendada (10 min)
+
+### Cómo organizar tu espacio de trabajo
+
+```
+tu-carpeta-de-trabajo/
+├── CLAUDE.md              → Reglas y contexto de tu equipo (ESTÁTICO)
+├── templates/             → Formatos reutilizables (ESTÁTICO)
+│   ├── email-seguimiento.md
+│   ├── reporte-semanal.md
+│   └── propuesta-comercial.md
+├── instrucciones/         → Procedimientos del equipo (ESTÁTICO)
+│   ├── como-clasificar-clientes.md
+│   └── proceso-de-cobranza.md
+├── reportes/              → Reportes generados (OUTPUT)
+│   ├── reporte-q1-2025.md
+│   └── cobranza-marzo.md
+└── emails/                → Comunicaciones generadas (OUTPUT)
+
+Neon (base de datos en la nube):       → DINÁMICO
+├── clientes
+├── ventas
+├── productos
+└── seguimientos
+```
+
+### La regla de oro
+
+| Tipo de información | Dónde va | Ejemplos |
+|---|---|---|
+| **Estática** — Cambia poco, define cómo trabaja el agente | Archivos locales | CLAUDE.md, templates, instrucciones |
+| **Dinámica** — Cambia constantemente, crece con el tiempo | Neon (base de datos) | Clientes, ventas, métricas, inventario |
+| **Output** — Lo que genera Claude | Archivos locales (temporal) | Reportes, emails, propuestas |
 
 ---
 
@@ -316,24 +344,24 @@ Los MCP servers se configuran en el archivo de settings de Claude Code. No profu
 
 **Malo:**
 ```
-> Haz una página
+> Hazme un reporte
 ```
 
 **Bueno:**
 ```
-> Crea una página de landing para una cafetería. Debe tener un header con el nombre "Café Sol",
-> una sección de menú con 5 productos con precio, y un formulario de reservas.
-> Usa colores cálidos (tonos café y crema). Debe verse bien en celular.
+> Genera un reporte de ventas del mes de marzo desde Neon.
+> Incluye: total vendido, top 3 vendedores, top 3 productos, y ventas pendientes de pago.
+> Formato: tabla markdown. Guárdalo en reportes/marzo-2025.md
 ```
 
 ### Reglas de oro
 
-1. **Sé específico** — Mientras más contexto le des, mejor resultado obtienes
-2. **Itera** — No intentes que quede perfecto al primer intento. Pide cambios progresivos
-3. **Pregunta "por qué"** — Si no entiendes algo que Claude hizo, pregunta. Es la mejor forma de aprender
-4. **Usa CLAUDE.md** — Define tus preferencias una vez y Claude las respeta siempre
-5. **Revisa antes de aceptar** — Lee lo que Claude propone antes de dar permiso. Vas a aprender mucho solo leyendo
-6. **No tengas miedo de experimentar** — Si algo sale mal, Claude puede deshacerlo
+1. **Sé específico** — Mientras más contexto, mejor resultado
+2. **Itera** — No esperes perfección al primer intento. Pide ajustes
+3. **Usa CLAUDE.md** — Define tus reglas una vez para no repetirte
+4. **Datos dinámicos en Neon** — No guardes clientes, ventas ni métricas en archivos CSV
+5. **Revisa antes de aceptar** — Lee lo que Claude propone antes de dar permiso
+6. **Crea templates** — Para tareas que repites seguido, ten un formato listo
 
 ### Atajos útiles
 
@@ -343,7 +371,6 @@ Los MCP servers se configuran en el archivo de settings de Claude Code. No profu
 | `Ctrl + C` | Cancelar lo que está haciendo |
 | `Ctrl + L` | Limpiar la pantalla |
 | `/help` | Ver ayuda |
-| `/commit` | Crear un commit |
 | `exit` | Salir de Claude Code |
 
 ---
@@ -351,24 +378,23 @@ Los MCP servers se configuran en el archivo de settings de Claude Code. No profu
 ## Cierre
 
 ### Lo que aprendimos hoy
-1. Crear proyectos completos desde una descripción
-2. Entender y documentar código existente
-3. Debuggear problemas automáticamente
-4. Usar skills para tareas comunes
-5. Personalizar Claude Code con CLAUDE.md
-6. Conectar con servicios externos vía MCP
+1. Analizar archivos CSV y generar reportes
+2. Redactar comunicaciones adaptadas a distintos canales
+3. Usar Neon como base de datos para información dinámica
+4. Personalizar el agente con CLAUDE.md
+5. Automatizar tareas repetitivas con templates y procesamiento en lote
+6. Separar información estática (local) de dinámica (Neon)
 
-### ¿Qué sigue?
-- Practica con un proyecto personal
-- Experimenta con diferentes tipos de proyectos (web, scripts, automatizaciones)
-- Explora los MCP servers disponibles
-- Crea tu propio CLAUDE.md personalizado
+### Próximos pasos
+- Lleva Claude Code a tu trabajo real — empieza con una tarea simple
+- Configura CLAUDE.md para tu equipo
+- Migra tus datos importantes a Neon (no más CSV de clientes en el escritorio)
+- Comparte los templates con tu equipo
 
 ---
 
 ## Recursos
 
 - [Documentación oficial de Claude Code](https://docs.anthropic.com/en/docs/claude-code)
-- [Skills disponibles](https://docs.anthropic.com/en/docs/claude-code/skills)
-- [MCP Servers](https://github.com/modelcontextprotocol/servers)
-- [Repositorio de Claude Code](https://github.com/anthropics/claude-code)
+- [Neon — Base de datos en la nube](https://neon.tech)
+- [Node.js](https://nodejs.org)
