@@ -228,6 +228,45 @@ Si Claude responde, todo está funcionando.
 
 ---
 
+## Seguridad básica al usar Claude Code
+
+Claude Code tiene acceso real a tu computador — puede leer, crear y modificar archivos, ejecutar comandos y conectarse a servicios externos. Eso lo hace poderoso, pero también requiere que seas consciente de lo que le permites hacer.
+
+### El sistema de permisos
+
+Claude Code **siempre te pide permiso** antes de actuar. Cuando te pide confirmación:
+
+- **y** (yes) — Permitir esta vez
+- **n** (no) — Rechazar la acción
+- **a** (always) — Permitir siempre para este tipo de acción
+
+**Regla de oro:** Si no entiendes lo que Claude va a hacer, responde **n** y pídele que te explique primero.
+
+### Qué NO hacer
+
+| Acción peligrosa | Por qué |
+|---|---|
+| Dar permiso sin leer qué va a hacer | Podría borrar archivos o modificar algo que no querías |
+| Poner contraseñas o tokens en archivos sin protección | Quedan guardados en texto plano en tu computador |
+| Subir archivos con datos sensibles a GitHub (un repo público) | Cualquier persona en internet puede verlos |
+| Darle acceso a carpetas fuera de tu proyecto | Podría leer o modificar archivos personales |
+
+### Buenas prácticas
+
+1. **Trabaja siempre dentro de tu carpeta de proyecto** — No abras Claude Code desde tu carpeta raíz o tu escritorio completo. Usa una carpeta específica como `taller-claude/`.
+
+2. **Lee antes de aceptar** — Cuando Claude te muestre qué archivo va a crear o qué comando va a ejecutar, léelo. Toma 5 segundos y te evita sorpresas.
+
+3. **No compartas credenciales en archivos** — Si necesitas conectarte a un servicio (como Neon), usa variables de entorno o la configuración de MCP, no pegues contraseñas en archivos de texto.
+
+4. **Cuidado con archivos sensibles en GitHub** — Si tu carpeta de trabajo tiene archivos con datos de clientes reales, asegúrate de que no se suban a un repositorio público. Usa un archivo `.gitignore` para excluirlos.
+
+5. **Revisa los archivos generados** — Antes de compartir un reporte o email que Claude generó, léelo. Claude es bueno pero puede inventar datos o incluir información que no querías compartir.
+
+> **Recuerda:** Claude Code es una herramienta. Tú eres el responsable de lo que se hace con ella. Si algo no se ve bien, siempre puedes decir que no.
+
+---
+
 ## Estructura del taller
 
 ### Clase 1 — Teoría + Instalación
