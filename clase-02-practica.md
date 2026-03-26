@@ -2,28 +2,26 @@
 
 **Duración:** 2 horas
 **Requisito:** Tener Claude Code instalado y funcionando (Clase 1).
-**Objetivo:** Usar Claude Code para resolver tareas reales de tu trabajo: analizar datos, redactar contenido, consultar bases de datos, y automatizar tareas repetitivas.
+**Objetivo:** Resolver tareas reales del trabajo: analizar datos, redactar, consultar bases de datos, personalizar el agente y automatizar.
 
 ---
 
-## Parte 1 — Repaso y setup (15 min)
-
-### Verificar que todo funciona
+## Parte 1 — Repaso y setup (10 min)
 
 ```bash
 cd ~/Desktop/taller-claude
 claude
 ```
 
-Si alguien tiene problemas, resolverlos ahora.
+> "¿Alguien tiene problemas para abrir Claude Code?" — Resolver ahora.
 
-### Repaso express de la Clase 1
+### Repaso express
 
-- Claude Code vive en la terminal y tiene acceso a tus archivos
-- Siempre pide permiso antes de actuar
-- **Estático** (archivos locales): instrucciones, reglas, templates
-- **Dinámico** (base de datos en la nube): clientes, ventas, métricas
-- Se invoca con `claude` dentro de una carpeta
+> Preguntar al grupo: *"¿Qué recuerdan de la clase pasada? ¿Qué es información estática y qué es dinámica?"*
+
+Reforzar en una frase:
+- Estático (archivos locales) = cómo trabaja el agente
+- Dinámico (Neon) = con qué datos trabaja
 
 ---
 
@@ -31,9 +29,9 @@ Si alguien tiene problemas, resolverlos ahora.
 
 ### El escenario
 
-Tienes un archivo CSV con las ventas del trimestre y necesitas sacar conclusiones rápidas para una reunión.
+> "Imaginen que tienen un CSV con las ventas del trimestre y en 30 minutos tienen una reunión de equipo. Necesitan sacar conclusiones rápido."
 
-### Paso a paso
+### Hacer juntos
 
 **1. Crear datos de ejemplo:**
 
@@ -51,6 +49,8 @@ Tienes un archivo CSV con las ventas del trimestre y necesitas sacar conclusione
 > Incluye: total vendido, mejor vendedor, mejor producto, tendencia mensual.
 ```
 
+> Dar un momento para que todos vean el resultado. Preguntar: *"¿Cuánto se habrían demorado haciendo esto en Excel?"*
+
 **3. Profundizar:**
 
 ```
@@ -61,6 +61,8 @@ Tienes un archivo CSV con las ventas del trimestre y necesitas sacar conclusione
 > ¿Hay algún cliente que haya comprado solo una vez? Podrían ser oportunidades de seguimiento.
 ```
 
+> Destacar que pueden hacer preguntas de negocio en español y Claude las responde.
+
 **4. Generar un reporte:**
 
 ```
@@ -68,10 +70,11 @@ Tienes un archivo CSV con las ventas del trimestre y necesitas sacar conclusione
 > Incluye tablas, rankings y recomendaciones de acción para el equipo.
 ```
 
-### Lo que aprendemos aquí
-- Claude Code lee archivos CSV directamente — sin copiar ni pegar
-- Puede hacer análisis complejos y presentarlos como quieras
-- Puede generar reportes listos para compartir
+> Abrir el archivo generado y mostrarlo. "Esto lo pueden compartir directo por email o Slack."
+
+### Punto clave
+
+> "Claude Code lee archivos CSV directamente. No copian, no pegan. Y pueden pedir análisis complejos en español."
 
 ---
 
@@ -79,9 +82,9 @@ Tienes un archivo CSV con las ventas del trimestre y necesitas sacar conclusione
 
 ### El escenario
 
-Necesitas redactar distintos tipos de comunicación para tu trabajo diario.
+> "Todos los días redactan emails, mensajes de WhatsApp, propuestas. Vamos a ver cómo Claude Code acelera esto."
 
-### Ejercicios
+### Hacer juntos
 
 **1. Email de seguimiento:**
 
@@ -96,6 +99,8 @@ Necesitas redactar distintos tipos de comunicación para tu trabajo diario.
 ```
 > Hazlo más corto, máximo 4 líneas. Va para WhatsApp, no email.
 ```
+
+> Mostrar cómo Claude adapta el formato y tono según el canal.
 
 **3. Propuesta comercial:**
 
@@ -112,38 +117,35 @@ Necesitas redactar distintos tipos de comunicación para tu trabajo diario.
 > Incluye el monto y agradece al equipo de operaciones por el apoyo.
 ```
 
-### Lo que aprendemos aquí
-- Claude Code puede adaptar tono y formato según el canal (email, WhatsApp, Slack)
-- Puedes iterar rápidamente pidiendo cambios
-- Los archivos generados quedan guardados en tu carpeta para reusar
+### Punto clave
+
+> "Pueden iterar rápido. Piden, ajustan, piden de nuevo. Todo queda guardado en archivos que pueden reusar."
 
 ---
 
 ## Parte 4 — Caso 3: Base de datos con Neon (30 min)
 
-### ¿Por qué una base de datos?
+### Introducción
 
-En la Clase 1 aprendimos que los datos dinámicos (clientes, ventas, etc.) no deben vivir en archivos locales. Ahora vamos a usar **Neon** — una base de datos en la nube que Claude Code puede consultar directamente.
+> "Hasta ahora trabajamos con archivos locales. Pero en la vida real, los datos de clientes y ventas no deberían vivir en un CSV en tu escritorio. Vamos a conectarnos a una base de datos en la nube."
 
-### Configuración de Neon
+### Configuración de Neon (10 min)
 
-**1. Crear cuenta en Neon:**
+> Hacer esto en pantalla compartida. Los alumnos siguen paso a paso.
 
-1. Ve a [neon.tech](https://neon.tech) y crea una cuenta gratuita
-2. Crea un nuevo proyecto (ponle un nombre como "taller-ventas")
-3. Neon te dará una URL de conexión — la necesitaremos en un momento
+**1. Crear cuenta:**
+1. Ir a [neon.tech](https://neon.tech) — cuenta gratuita
+2. Crear proyecto nuevo: "taller-ventas"
 
-**2. Conectar Claude Code con Neon:**
+**2. Conectar con Claude Code:**
 
-Claude Code se conecta a Neon a través de MCP. La configuración se hace una vez y queda lista para siempre.
+> Mostrar en pantalla cómo configurar el MCP de Neon en Claude Code.
 
-> **Nota para el instructor:** Mostrar en pantalla cómo configurar el MCP de Neon en Claude Code.
+> "Levanten la mano cuando estén conectados."
 
-### Crear tablas y cargar datos
+### Crear tablas y cargar datos (5 min)
 
-Una vez conectado, puedes hablarle a tu base de datos en español:
-
-**1. Crear la estructura:**
+> Hacer juntos, esperando que todos completen cada paso.
 
 ```
 > Crea una tabla de clientes en Neon con: nombre, empresa, email, teléfono, ciudad, categoría (A/B/C), fecha de primer contacto.
@@ -153,8 +155,6 @@ Una vez conectado, puedes hablarle a tu base de datos en español:
 > Crea una tabla de ventas con: fecha, cliente (que referencie a la tabla clientes), producto, cantidad, monto en CLP, estado (pendiente/pagada/vencida).
 ```
 
-**2. Cargar datos:**
-
 ```
 > Inserta 15 clientes ficticios pero realistas, de empresas chilenas, distribuidos entre Santiago, Valparaíso y Concepción. Mezcla categorías A, B y C.
 ```
@@ -163,9 +163,9 @@ Una vez conectado, puedes hablarle a tu base de datos en español:
 > Inserta 40 ventas de los últimos 3 meses para esos clientes. Que haya ventas en los 3 estados.
 ```
 
-### Consultar datos como si fuera una conversación
+### Consultar datos — la parte mágica (10 min)
 
-Aquí es donde ocurre la magia — **no necesitas saber SQL**:
+> "Ahora viene lo bueno. Le van a hacer preguntas a su base de datos en español. No necesitan saber SQL."
 
 ```
 > ¿Cuántos clientes categoría A tenemos en Santiago?
@@ -183,7 +183,9 @@ Aquí es donde ocurre la magia — **no necesitas saber SQL**:
 > ¿Qué clientes no han comprado nada en el último mes? Podrían estar en riesgo de churn.
 ```
 
-### Actualizar datos
+> Dar espacio para que prueben sus propias preguntas. *"Háganle una pregunta que les interese de verdad."*
+
+### Actualizar datos (5 min)
 
 ```
 > Cambia la categoría del cliente "Empresa XYZ" de B a A — cerramos un deal grande con ellos.
@@ -193,24 +195,19 @@ Aquí es donde ocurre la magia — **no necesitas saber SQL**:
 > Marca como pagadas todas las ventas de febrero que estén pendientes.
 ```
 
-### Generar reportes desde la base de datos
+> "No solo pueden consultar. Pueden actualizar datos directamente."
 
-```
-> Genera un reporte de cobranza: lista todas las ventas vencidas, ordenadas por monto.
-> Incluye el nombre del cliente, su email y teléfono para que el equipo pueda contactarlos.
-```
+### Punto clave
 
-### Lo que aprendemos aquí
-- Neon es tu base de datos en la nube — accesible desde cualquier lugar
-- Claude Code consulta y modifica datos directamente, sin que sepas SQL
-- La información dinámica (clientes, ventas) vive en Neon, no en archivos CSV
-- Puedes generar reportes combinando datos de la base con templates locales
+> "Neon es su base de datos en la nube. Claude Code la consulta y modifica sin que sepan SQL. Los datos dinámicos van acá, no en archivos CSV."
 
 ---
 
 ## Parte 5 — Caso 4: CLAUDE.md — Personalizar tu agente (15 min)
 
-### Crear las reglas de tu equipo
+### Crear las reglas
+
+> "Hasta ahora, cada vez que le pedimos algo a Claude tenemos que ser muy específicos. ¿Y si pudiéramos definir las reglas una vez y que se apliquen siempre?"
 
 ```
 > Crea un archivo CLAUDE.md con las siguientes reglas para nuestro equipo de ventas:
@@ -226,53 +223,37 @@ Aquí es donde ocurre la magia — **no necesitas saber SQL**:
 
 ### Probar que funciona
 
-Cierra Claude Code (`exit`) y vuelve a abrirlo:
+> "Salgan de Claude Code con `exit` y vuelvan a entrar."
 
 ```bash
 claude
 ```
 
-Ahora pide algo sin especificar formato:
-
 ```
 > Dame el resumen de ventas del mes
 ```
 
-Claude debería automáticamente:
-- Responder en español
-- Usar formato de fecha DD/MM/YYYY
-- Mostrar montos en CLP con separador de miles
-- Consultar la base de datos Neon
+> "¿Notaron la diferencia? No le dije en qué formato, ni en qué idioma, ni de dónde sacar los datos. Ya lo sabe."
 
-### Agregar instrucciones específicas
+### Agregar reglas sobre la marcha
 
 ```
 > Agrega a CLAUDE.md: "Cuando el usuario pida un reporte de cobranza, siempre incluir teléfono y email del cliente para facilitar el seguimiento"
 ```
 
-### Lo que aprendemos aquí
-- CLAUDE.md es la forma de entrenar a tu agente sin repetirte
-- Define una vez, aplica siempre
-- Puedes ir refinando las reglas a medida que trabajas
+### Punto clave
+
+> "CLAUDE.md es el manual de operaciones de su agente. Lo definen una vez y se aplica siempre. Pueden ir refinándolo con el tiempo."
 
 ---
 
 ## Parte 6 — Caso 5: Automatizar tareas repetitivas (15 min)
 
-### El escenario
+### Ejercicios prácticos
 
-Hay tareas que haces todos los días o todas las semanas que podrían hacerse más rápido.
+> "Vamos a ver cómo Claude Code les ahorra tiempo en tareas que hacen seguido."
 
-### Ejemplos prácticos
-
-**1. Organizar archivos:**
-
-```
-> Tengo varios archivos sueltos en esta carpeta. Organízalos en subcarpetas por tipo:
-> documentos/, datos/, reportes/
-```
-
-**2. Crear templates reutilizables:**
+**1. Crear templates reutilizables:**
 
 ```
 > Crea una carpeta templates/ con los siguientes archivos:
@@ -281,44 +262,41 @@ Hay tareas que haces todos los días o todas las semanas que podrían hacerse m�
 > - propuesta-comercial.md → Template de propuesta con campos para completar
 ```
 
-**3. Procesar múltiples archivos:**
+**2. Procesar múltiples archivos:**
 
 ```
-> Lee todos los archivos CSV de la carpeta datos/ y crea un resumen consolidado
+> Lee todos los archivos CSV de la carpeta y crea un resumen consolidado
 > con las métricas principales de cada uno
 ```
 
-**4. Generar contenido en lote:**
+**3. Generar contenido en lote:**
 
 ```
 > Usando la tabla de clientes categoría A de Neon, genera un email personalizado
 > de seguimiento para cada uno. Guárdalos en la carpeta emails/
 ```
 
-### Lo que aprendemos aquí
-- Claude Code puede trabajar con múltiples archivos a la vez
-- Los templates te ahorran tiempo en tareas repetitivas
-- Puedes combinar datos de Neon con templates locales para generar contenido personalizado
+> Abrir la carpeta emails/ y mostrar los archivos generados. "Un email personalizado para cada cliente, en segundos."
+
+### Punto clave
+
+> "Templates + datos de Neon + Claude Code = contenido personalizado en lote, sin esfuerzo manual."
 
 ---
 
-## Parte 7 — Arquitectura recomendada (10 min)
+## Parte 7 — Arquitectura recomendada (5 min)
 
-### Cómo organizar tu espacio de trabajo
+> Mostrar en pantalla:
 
 ```
 tu-carpeta-de-trabajo/
-├── CLAUDE.md              → Reglas y contexto de tu equipo (ESTÁTICO)
+├── CLAUDE.md              → Reglas y contexto (ESTÁTICO)
 ├── templates/             → Formatos reutilizables (ESTÁTICO)
 │   ├── email-seguimiento.md
 │   ├── reporte-semanal.md
 │   └── propuesta-comercial.md
 ├── instrucciones/         → Procedimientos del equipo (ESTÁTICO)
-│   ├── como-clasificar-clientes.md
-│   └── proceso-de-cobranza.md
 ├── reportes/              → Reportes generados (OUTPUT)
-│   ├── reporte-q1-2025.md
-│   └── cobranza-marzo.md
 └── emails/                → Comunicaciones generadas (OUTPUT)
 
 Neon (base de datos en la nube):       → DINÁMICO
@@ -328,24 +306,17 @@ Neon (base de datos en la nube):       → DINÁMICO
 └── seguimientos
 ```
 
-### La regla de oro
-
-| Tipo de información | Dónde va | Ejemplos |
-|---|---|---|
-| **Estática** — Cambia poco, define cómo trabaja el agente | Archivos locales | CLAUDE.md, templates, instrucciones |
-| **Dinámica** — Cambia constantemente, crece con el tiempo | Neon (base de datos) | Clientes, ventas, métricas, inventario |
-| **Output** — Lo que genera Claude | Archivos locales (temporal) | Reportes, emails, propuestas |
+> "Estático en tu carpeta, dinámico en Neon, output donde quieran."
 
 ---
 
-## Parte 8 — Tips y buenas prácticas (10 min)
+## Parte 8 — Tips y buenas prácticas (5 min)
 
 ### Cómo pedir cosas efectivamente
 
-**Malo:**
-```
-> Hazme un reporte
-```
+> Mostrar la diferencia:
+
+**Malo:** `Hazme un reporte`
 
 **Bueno:**
 ```
@@ -354,14 +325,14 @@ Neon (base de datos en la nube):       → DINÁMICO
 > Formato: tabla markdown. Guárdalo en reportes/marzo-2025.md
 ```
 
-### Reglas de oro
+### Las 6 reglas de oro
 
-1. **Sé específico** — Mientras más contexto, mejor resultado
-2. **Itera** — No esperes perfección al primer intento. Pide ajustes
-3. **Usa CLAUDE.md** — Define tus reglas una vez para no repetirte
-4. **Datos dinámicos en Neon** — No guardes clientes, ventas ni métricas en archivos CSV
-5. **Revisa antes de aceptar** — Lee lo que Claude propone antes de dar permiso
-6. **Crea templates** — Para tareas que repites seguido, ten un formato listo
+1. **Sé específico** — Más contexto = mejor resultado
+2. **Itera** — No esperes perfección al primer intento
+3. **Usa CLAUDE.md** — Define reglas una vez, no te repitas
+4. **Datos en Neon** — No guardes clientes ni ventas en CSV
+5. **Revisa antes de aceptar** — Lee lo que Claude propone
+6. **Crea templates** — Para tareas que repites seguido
 
 ### Atajos útiles
 
@@ -375,21 +346,20 @@ Neon (base de datos en la nube):       → DINÁMICO
 
 ---
 
-## Cierre
+## Cierre (5 min)
 
-### Lo que aprendimos hoy
-1. Analizar archivos CSV y generar reportes
-2. Redactar comunicaciones adaptadas a distintos canales
-3. Usar Neon como base de datos para información dinámica
-4. Personalizar el agente con CLAUDE.md
-5. Automatizar tareas repetitivas con templates y procesamiento en lote
-6. Separar información estática (local) de dinámica (Neon)
+### Ronda rápida
+
+> Preguntar a cada alumno: *"¿Cuál es la primera tarea de su trabajo que van a hacer con Claude Code?"*
 
 ### Próximos pasos
-- Lleva Claude Code a tu trabajo real — empieza con una tarea simple
-- Configura CLAUDE.md para tu equipo
-- Migra tus datos importantes a Neon (no más CSV de clientes en el escritorio)
-- Comparte los templates con tu equipo
+
+- Llevar Claude Code a su trabajo real — empezar con algo simple
+- Configurar CLAUDE.md para su equipo
+- Migrar datos importantes a Neon
+- Compartir templates con el equipo
+
+> "Ya tienen todas las herramientas. Ahora es cuestión de practicar."
 
 ---
 

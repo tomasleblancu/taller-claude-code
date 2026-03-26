@@ -1,328 +1,159 @@
 # Clase 1 — Teoría + Instalación de Claude Code
 
 **Duración:** 2 horas
-**Objetivo:** Entender qué es Claude Code, por qué es más potente que el chat web, e instalarlo en tu computador.
+**Objetivo:** Reforzar los conceptos del README, resolver dudas, instalar Claude Code y lograr la primera interacción.
 
 ---
 
-## Parte 1 — ¿Por qué estamos aquí? (10 min)
+## Parte 1 — Bienvenida y contexto (10 min)
 
-### El problema
+> Preguntar al grupo: "¿Quiénes ya han usado ChatGPT o Claude en el navegador? ¿Para qué lo usan?"
 
-Probablemente ya usas ChatGPT o Claude en el navegador. Le pides que te redacte un email, te resuma un documento, o te ayude con una tabla de datos. Funciona bien, pero tiene límites:
+### Repasar brevemente
 
-- Tienes que **copiar y pegar** archivos manualmente
-- No puede **ver tus carpetas** ni trabajar directo con tus documentos
-- No puede **ejecutar acciones** en tu computador
-- Cada conversación parte de cero — **no recuerda** tu contexto de trabajo
+Los alumnos ya leyeron el README. Reforzar los puntos clave sin repetir todo:
 
-### La solución
-
-**Claude Code** es como tener a Claude sentado al lado tuyo, con acceso a tu computador. Puede:
-
-- Leer y modificar tus archivos directamente
-- Analizar tus planillas, CSVs y documentos sin copiar-pegar
-- Ejecutar tareas en tu computador
-- Recordar las reglas y preferencias de tu equipo
-- Conectarse con herramientas externas (bases de datos, Telegram, navegador, etc.)
-
-Para usarlo, necesitamos aprender algunos conceptos básicos primero.
+- **El problema:** copiar-pegar, sin acceso a archivos, sin memoria, sin conexiones
+- **La solución:** Claude Code — Claude con acceso a tu computador
+- Preguntar: *"¿Quedó alguna duda del README?"*
 
 ---
 
-## Parte 2 — Conceptos fundamentales (40 min)
+## Parte 2 — Demo en vivo: La Terminal (15 min)
 
-### 2.1 — La Terminal
-
-La terminal es una ventana donde le das instrucciones escritas a tu computador. En vez de hacer clic en carpetas e íconos, le escribes qué hacer.
-
-**Analogía:** Imagina que tu computador es un restaurante. La interfaz gráfica (Finder, Explorador de archivos) es como el menú con fotos. La terminal es como hablarle directo al chef — más directo, más flexible, más poderoso.
-
-**Cómo abrir la terminal:**
-
-- **Mac:** Presiona `Cmd + Espacio`, escribe "Terminal" y presiona Enter
-- **Windows:** Presiona la tecla Windows, escribe "PowerShell" y presiona Enter
-
-**Los únicos comandos que necesitas saber:**
+> Abrir la terminal en pantalla compartida y ejecutar cada comando mientras los alumnos siguen en su computador.
 
 ```bash
-# Ver en qué carpeta estás (como preguntar "¿dónde estoy?")
-pwd
-
-# Ver qué hay en la carpeta actual (como abrir una carpeta en Finder)
-ls
-
-# Entrar a una carpeta
-cd Escritorio
-
-# Volver atrás
-cd ..
-
-# Crear una carpeta nueva
-mkdir mi-carpeta
-
-# Limpiar la pantalla
-clear
+pwd              # "¿Dónde estoy?"
+ls               # "¿Qué hay acá?"
+cd Escritorio    # Entrar a una carpeta
+ls               # Ver qué hay
+cd ..            # Volver atrás
+mkdir taller-claude   # Crear carpeta
+cd taller-claude
+pwd              # Confirmar que estamos adentro
 ```
 
-> **Ejercicio en vivo:** Abre tu terminal, navega al escritorio y crea una carpeta llamada `taller-claude`.
+### Ejercicio (3 min)
+
+> "Abran su terminal, naveguen al escritorio y creen la carpeta `taller-claude`. Levanten la mano cuando estén adentro."
+
+Verificar con el grupo. Resolver problemas comunes:
+- Mac: "Terminal" no aparece → buscar en Aplicaciones > Utilidades
+- Windows: usar PowerShell, no CMD
 
 ---
 
-### 2.2 — ¿Qué es una CLI?
+## Parte 3 — Conceptos clave en profundidad (25 min)
 
-CLI significa **Command Line Interface** — un programa que se usa escribiendo comandos en la terminal.
+> Esta sección es conversacional. Usar las analogías del README pero ir más profundo con preguntas y ejemplos.
 
-La mayoría de las herramientas que usas tienen botones e íconos (Excel, Word, Gmail). Una CLI se usa escribiendo texto. **Claude Code es una CLI** — en vez de ir a una página web, abres la terminal y escribes `claude`.
+### CLI y paquetes (5 min)
 
-**¿Por qué no simplemente hacer una app con botones?** Porque la terminal permite hacer cosas que una interfaz gráfica no puede: automatizar, encadenar acciones, trabajar con muchos archivos a la vez, y conectar herramientas entre sí.
+Reforzar:
+- CLI = programa que se usa escribiendo, no haciendo clic
+- npm = App Store de la terminal
+- Un solo comando instala Claude Code
 
-No te preocupes — no necesitas ser experto en terminal. Solo necesitas saber abrirla y escribir los comandos básicos que vimos arriba. Claude Code hace el resto.
+> Preguntar: *"¿Alguien ha usado algún programa desde la terminal antes?"*
+
+### Claude Code vs. chat web — demo en vivo (10 min)
+
+> Abrir claude.ai en el navegador y hacer una tarea. Luego hacer la misma tarea en Claude Code para mostrar la diferencia.
+
+**Demo sugerida:**
+1. En claude.ai: pegar un texto y pedir que lo resuma
+2. En Claude Code: *"Lee el archivo notas.txt y resúmelo"* (crear el archivo antes)
+
+Destacar: "No copié nada. Claude leyó el archivo directo."
+
+### Estático vs. dinámico (10 min)
+
+> Este concepto es fundamental. Usar ejemplos concretos del trabajo de los alumnos.
+
+Dibujar en pizarra/pantalla:
+
+```
+TU COMPUTADOR                    LA NUBE (Neon)
+├── CLAUDE.md (reglas)           ├── clientes
+├── templates/ (formatos)        ├── ventas
+└── instrucciones/               └── métricas
+
+    "CÓMO trabajar"              "CON QUÉ trabajar"
+```
+
+> Preguntar: *"En su trabajo, ¿qué información es estática y cuál es dinámica?"*
+
+Ejemplos para guiar la conversación:
+- Estático: el formato del reporte semanal, las reglas de descuento, el template de propuesta
+- Dinámico: la lista de clientes, las ventas del mes, el inventario
 
 ---
 
-### 2.3 — ¿Qué es un paquete?
+## Parte 4 — Instalación guiada (30 min)
 
-Un **paquete** es un programa empaquetado para ser fácil de instalar desde la terminal.
+> Ir paso a paso. Esperar a que todos terminen cada paso antes de avanzar.
 
-**Analogía:** La App Store de tu celular te permite instalar apps con un toque. Un **package manager** es lo mismo pero para la terminal — le dices qué programa quieres y lo instala por ti.
-
-El package manager que usaremos es **npm** (viene incluido con Node.js). Ejemplo:
-
-```bash
-# Así se instala Claude Code
-npm install -g @anthropic-ai/claude-code
-```
-
-Eso es todo lo que necesitas saber sobre paquetes. Un comando y listo.
-
----
-
-### 2.4 — ¿Qué es Claude Code?
-
-Claude Code es la **herramienta oficial de Anthropic** para usar Claude desde tu terminal, con acceso directo a tus archivos.
-
-| Chat web (claude.ai) | Claude Code (terminal) |
-|---|---|
-| Le copias y pegas texto | Lee tus archivos directamente |
-| No conoce tu contexto de trabajo | Conoce tu carpeta, tus archivos, tu proyecto |
-| Solo conversa | Conversa Y ejecuta acciones |
-| Cada chat parte de cero | Recuerda las reglas de tu equipo (CLAUDE.md) |
-| No se conecta con nada | Se conecta con bases de datos, Telegram, navegador, etc. |
-
-**Ejemplo concreto:**
-
-En el chat web harías:
-> "Tengo esta tabla de ventas [pega 500 filas]. ¿Cuál fue el mejor mes?"
-
-Con Claude Code:
-> "Analiza el archivo ventas-2025.csv y dime cuál fue el mejor mes"
-
-Claude Code lee el archivo directo de tu carpeta. Sin copiar, sin pegar, sin límite de tamaño.
-
----
-
-### 2.5 — Conceptos clave de Claude Code
-
-#### CLAUDE.md — Las reglas de tu equipo
-
-`CLAUDE.md` es un archivo que le dice a Claude cómo trabajar en tu proyecto. Se lee automáticamente cada vez que abres Claude Code en esa carpeta.
-
-**Ejemplo para un equipo de ventas:**
-
-```markdown
-# CLAUDE.md
-
-## Contexto
-Somos el equipo de ventas de una empresa de software B2B en Chile.
-
-## Reglas
-- Responde siempre en español
-- Los reportes deben incluir montos en CLP y USD
-- Usa formato de fecha DD/MM/YYYY
-- Los nombres de clientes son confidenciales — nunca los incluyas en resúmenes públicos
-```
-
-#### Skills — Atajos para tareas comunes
-
-Las skills son comandos que empiezan con `/`. En vez de explicarle paso a paso qué hacer, invocas un atajo:
-
-```
-/help          → Ver qué puede hacer Claude Code
-/commit        → Guardar cambios en el historial del proyecto
-```
-
-#### MCP — Conexiones con herramientas externas
-
-MCP permite que Claude Code se conecte con otros servicios:
-
-- **Bases de datos (Neon)** → Consultar y guardar datos sin saber SQL
-- **Telegram** → Enviar mensajes y notificaciones
-- **Navegador (Chrome)** → Interactuar con páginas web
-- **Servicios de deploy** → Publicar proyectos
-
-No necesitas entender los detalles técnicos ahora. Lo importante es saber que Claude Code puede ir más allá de solo leer archivos.
-
----
-
-### 2.6 — Concepto clave: Información estática vs dinámica
-
-Este es uno de los conceptos más importantes del taller. Hay dos tipos de información con los que trabajarás:
-
-#### Información estática (va en archivos locales)
-
-Es información que **no cambia frecuentemente** y que define cómo trabaja tu agente:
-
-- `CLAUDE.md` — Las reglas y contexto de tu equipo
-- Memorias — Lo que Claude aprende sobre ti y tu forma de trabajar
-- Instrucciones — Templates, formatos, procedimientos
-- Prompts — Cómo le pides las cosas a Claude
-
-Esta información vive en carpetas dentro de tu computador. Es como el "manual de operaciones" de tu agente.
-
-#### Información dinámica (va en una base de datos en la nube)
-
-Es información que **cambia constantemente** y que crece con el tiempo:
-
-- Clientes y sus datos de contacto
-- Registros de ventas
-- Hallazgos e insights
-- Estado de proyectos
-- Inventario, órdenes, métricas
-
-Esta información **no debe guardarse en archivos locales**. ¿Por qué?
-
-- Los archivos se pierden si tu computador falla
-- No se comparten fácilmente entre equipos
-- No escalan — un CSV de 100,000 filas se vuelve inmanejable
-- No tienen control de acceso — cualquiera con el archivo ve todo
-
-**La solución: una base de datos en la nube.** Nosotros usaremos **Neon** — una base de datos PostgreSQL en la nube que Claude Code puede consultar directamente vía MCP.
-
-**Ejemplo del flujo:**
-
-```
-Tu carpeta local (estático):
-├── CLAUDE.md          → "Somos equipo de ventas, montos en CLP..."
-├── templates/         → Formatos de email, reportes, propuestas
-└── instrucciones/     → Cómo clasificar clientes, cómo calcular comisiones
-
-Neon - Base de datos en la nube (dinámico):
-├── clientes           → 500 registros con datos de contacto
-├── ventas             → 10,000 transacciones del último año
-├── productos          → Catálogo actualizado con precios
-└── seguimientos       → Estado de cada oportunidad comercial
-```
-
-Con esta separación, Claude Code usa tus instrucciones locales para saber **cómo** trabajar, y consulta Neon para acceder a los **datos** con los que trabaja.
-
----
-
-## Parte 3 — Instalación paso a paso (40 min)
-
-### 3.1 — Instalar Node.js
-
-Node.js es el motor que necesita Claude Code para funcionar. Solo hay que instalarlo una vez.
-
-#### Verificar si ya lo tienes
-
-Abre tu terminal y escribe:
+### Paso 1: Node.js
 
 ```bash
 node --version
 ```
 
-Si ves algo como `v20.11.0`, ya lo tienes y puedes saltar al paso 3.2. Si dice "command not found", sigue las instrucciones:
+> "¿A quién le apareció un número? Perfecto, ya lo tienen. ¿A quién le dijo 'command not found'?"
 
-#### En Mac
+Para los que necesitan instalar:
+- **Mac:** `brew install node` (o descargar de nodejs.org)
+- **Windows:** `winget install OpenJS.NodeJS.LTS` (o descargar de nodejs.org)
 
-**Opción A — Con Homebrew (recomendado):**
-
-```bash
-# Instalar Homebrew (el package manager de Mac)
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Instalar Node.js
-brew install node
-```
-
-**Opción B — Descarga directa:**
-
-1. Ve a [nodejs.org](https://nodejs.org)
-2. Descarga la versión LTS (el botón verde de la izquierda)
-3. Abre el archivo descargado y sigue las instrucciones del instalador
-
-#### En Windows
-
-**Opción A — Con winget:**
-
-```powershell
-winget install OpenJS.NodeJS.LTS
-```
-
-**Opción B — Descarga directa:**
-
-1. Ve a [nodejs.org](https://nodejs.org)
-2. Descarga la versión LTS para Windows
-3. Ejecuta el instalador (.msi)
-4. **Importante:** Marca la casilla "Add to PATH" durante la instalación
-5. Sigue las instrucciones hasta el final
-
-#### Verificar
-
-Cierra la terminal, vuelve a abrirla, y escribe:
-
+Verificar:
 ```bash
 node --version
 npm --version
 ```
 
-Si ambos muestran un número, estás listo.
+> "Levanten la mano cuando ambos comandos muestren un número."
 
----
-
-### 3.2 — Instalar Claude Code
-
-Un solo comando:
+### Paso 2: Claude Code
 
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-Verifica:
+> Esperar. Puede tomar 1-2 minutos. Si alguien tiene error de permisos en Mac: `sudo npm install -g @anthropic-ai/claude-code`
 
+Verificar:
 ```bash
 claude --version
 ```
 
----
-
-### 3.3 — Autenticación
+### Paso 3: Autenticación
 
 ```bash
-# Entra a tu carpeta de trabajo
 cd ~/Desktop/taller-claude
-
-# Inicia Claude Code
 claude
 ```
 
-La primera vez se abre una ventana en el navegador para que inicies sesión con tu cuenta de Anthropic. Sigue las instrucciones en pantalla.
+> "Se les va a abrir el navegador. Inicien sesión con su cuenta de Anthropic. Si no tienen cuenta, créenla ahora — es gratis con el trial."
+
+> Esperar a que todos estén dentro de Claude Code.
 
 ---
 
-## Parte 4 — Primera interacción (30 min)
+## Parte 5 — Primera interacción (30 min)
 
-### 4.1 — Explorar lo básico
+> Todos deben tener Claude Code abierto. Ir haciendo cada ejercicio juntos.
 
-Ya dentro de Claude Code, prueba estos comandos:
+### Ejercicio 1: Explorar (5 min)
 
-**Preguntar algo simple:**
 ```
 > ¿Qué archivos hay en esta carpeta?
 ```
 
-**Crear un archivo:**
+> Mostrar cómo Claude lee la carpeta y responde. Señalar que pidió permiso antes de ejecutar el comando.
+
+### Ejercicio 2: Crear un archivo (5 min)
+
 ```
 > Crea un archivo llamado notas.txt con las tareas pendientes de esta semana:
 > 1. Enviar propuesta a cliente Acme
@@ -330,21 +161,18 @@ Ya dentro de Claude Code, prueba estos comandos:
 > 3. Agendar reunión con equipo de operaciones
 ```
 
-Observa cómo Claude:
-1. Te muestra qué va a hacer
-2. Te pide permiso antes de actuar
-3. Crea el archivo y te confirma
+> Mostrar: Claude muestra qué va a hacer → pide permiso → crea el archivo → confirma.
 
-### 4.2 — Trabajar con datos
+> "Abran su Finder o Explorador de archivos y busquen la carpeta taller-claude. ¿Ven el archivo? Claude lo creó de verdad."
 
-Crea un archivo de ejemplo para practicar:
+### Ejercicio 3: Trabajar con datos (10 min)
 
 ```
 > Crea un archivo CSV llamado ventas-ejemplo.csv con datos ficticios de ventas:
 > 10 filas, con columnas: fecha, cliente, producto, cantidad, monto en CLP
 ```
 
-Ahora analízalo:
+Ahora analizar:
 
 ```
 > ¿Cuál fue el cliente con más ventas en total?
@@ -354,7 +182,9 @@ Ahora analízalo:
 > Haz un resumen ejecutivo de las ventas por producto
 ```
 
-### 4.3 — Redactar contenido
+> Destacar: "No copié ningún dato. Claude leyó el CSV directo."
+
+### Ejercicio 4: Redactar contenido (5 min)
 
 ```
 > Redacta un email profesional para un cliente que se llama María, agradeciéndole
@@ -365,38 +195,35 @@ Ahora analízalo:
 > Ahora hazlo más corto y directo, estilo WhatsApp
 ```
 
-### 4.4 — El sistema de permisos
+> Mostrar cómo se puede iterar pidiendo cambios.
 
-Claude Code siempre pide permiso antes de:
-- Crear o modificar archivos
-- Ejecutar comandos en la terminal
-- Acceder a servicios externos
+### Ejercicio 5: El sistema de permisos (5 min)
 
-Puedes responder:
+> Explicar mientras se trabaja:
+
 - **y** (yes) — Permitir esta vez
 - **n** (no) — Rechazar
 - **a** (always) — Permitir siempre para este tipo de acción
 
-> **Tip:** Si no estás seguro de lo que Claude va a hacer, responde **n** y pídele que te explique primero.
+> "Si no están seguros de lo que Claude va a hacer, respondan **n** y pídanle que explique primero. Siempre tienen el control."
 
 ---
 
-## Cierre y próximos pasos
+## Cierre (10 min)
 
-### Resumen de lo aprendido
-- La terminal es tu herramienta para comunicarte con el computador vía texto
-- Claude Code es Claude con superpoderes: acceso a tus archivos, ejecución de acciones, y conexión con herramientas
-- Se instala con un solo comando y se autentica una sola vez
-- Siempre pide permiso antes de actuar — tú tienes el control
+### Resumen rápido
+
+> Preguntar: *"¿Qué fue lo que más les sorprendió?"*
+
+Reforzar:
+- Claude Code = Claude con acceso a tu computador
+- Se instala una vez, se autentica una vez
+- Siempre pide permiso — tú tienes el control
 
 ### Para la próxima clase
-- Tener Claude Code instalado y funcionando
-- Traer un archivo real de tu trabajo (un CSV, una planilla, un documento) con el que te gustaría experimentar
-- Pensar en tareas repetitivas de tu día a día que te gustaría automatizar
 
----
+- Tener Claude Code funcionando
+- Traer un **archivo real** de su trabajo (CSV, planilla, documento)
+- Pensar en **tareas repetitivas** que hacen seguido
 
-## Recursos
-
-- [Documentación oficial de Claude Code](https://docs.anthropic.com/en/docs/claude-code)
-- [Node.js](https://nodejs.org)
+> "La próxima clase vamos a trabajar con sus datos reales y vamos a conectarnos a una base de datos en la nube."
