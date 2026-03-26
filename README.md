@@ -55,7 +55,30 @@ El instalador que usaremos es **npm** (viene incluido con Node.js):
 npm install -g @anthropic-ai/claude-code
 ```
 
-### 4. Claude Code vs. el chat web
+### 4. ¿Qué es GitHub?
+
+**GitHub** es como Google Drive pero para proyectos de trabajo. Es un lugar en la nube donde puedes guardar carpetas y archivos, llevar un historial de todos los cambios, y compartir con tu equipo.
+
+**¿Por qué nos importa?**
+
+- Es donde vive el material de este taller (por eso estás leyendo esto acá)
+- Claude Code puede interactuar con GitHub directamente
+- Te permite tener un respaldo en la nube de tu trabajo
+- Puedes ver quién cambió qué y cuándo
+
+**Conceptos básicos:**
+
+| Concepto | Qué es | Analogía |
+|---|---|---|
+| **Repositorio (repo)** | Una carpeta de proyecto en GitHub | Una carpeta compartida en Google Drive |
+| **Commit** | Un punto de guardado con descripción | "Guardar como..." con una nota de qué cambiaste |
+| **Push** | Subir tus cambios a GitHub | Sincronizar archivos a la nube |
+| **Pull** | Bajar cambios desde GitHub | Descargar la última versión |
+| **Branch** | Una copia paralela para experimentar | Hacer una copia del documento antes de editarlo |
+
+No necesitas dominar Git para este taller, pero es bueno saber que existe porque Claude Code lo usa internamente para guardar el historial de cambios de tu proyecto.
+
+### 5. Claude Code vs. el chat web
 
 Ya conoces ChatGPT o Claude en el navegador. Claude Code es un paso más allá:
 
@@ -75,7 +98,7 @@ Con Claude Code: *"Analiza el archivo ventas-2025.csv y dime cuál fue el mejor 
 
 Claude Code lee el archivo directo. Sin copiar, sin pegar, sin límite de tamaño.
 
-### 5. Conceptos clave
+### 6. Conceptos clave
 
 #### CLAUDE.md — Las reglas de tu equipo
 
@@ -103,7 +126,7 @@ Comandos que empiezan con `/` para ejecutar acciones rápidas:
 
 MCP permite que Claude Code se conecte con otros servicios: bases de datos, Telegram, navegador, servicios de deploy, y más. No necesitas entender los detalles técnicos — lo importante es saber que Claude Code puede ir mucho más allá de solo leer archivos.
 
-### 6. Información estática vs. dinámica
+### 7. Información estática vs. dinámica
 
 Esta es una de las ideas más importantes del taller:
 
